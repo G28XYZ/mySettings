@@ -1,0 +1,5 @@
+// из ресурса https://browsersync.io/
+npm install -g browser-sync 
+
+// запуск локального сервера
+browser-sync start --server --files "./**/*.*" --no-notify
