@@ -1,4 +1,7 @@
 ==============================================================================
+ // returns a corrected sentence which starts with capital letter
+ // and ends with dot.
+
 // 1)
 function correctSentence(text: string): string {
     let dot = text.slice(-1) == "." ? "" : "."
