@@ -57,3 +57,70 @@ assert.equal(isEven(2), true);
 assert.equal(isEven(5), false);
 assert.equal(isEven(0), true);
 ==============================================================================
+==============================================================================
+// In a given text you need to sum the numbers. 
+// Only separated numbers should be counted. 
+// If a number is part of a word it shouldn't be counted.
+// The text consists from numbers, spaces and english letters
+// Input: A string.
+// Output: An int.
+
+1)
+function sumNumbers(test) {
+    let arrayTest = test.split(' ').map((i) => 
+	{		
+
+		if(isNaN(parseFloat(i)) || i.search(/\d+[a-zA-Z]+/) == 0) {
+			return 0
+		}else {
+			return parseFloat(i)
+		}
+	}
+	)
+
+    return arrayTest.reduce((a, i) => a + i)
+}
+
+// 2)
+function sumNumbers(text: string): number {
+    return text.split(' ').reduce((a, w) => /^[0-9]+$/.test(w) ? a + parseInt(w) : a, 0);
+}
+
+// 3)
+function sumNumbers(t: string): number {
+    return (t.match(/\b\d+\b/g)||[]).reduce((a,c)=>a+ +c,0);
+}
+
+// 4)
+function sumNumbers(test: string): number {
+    const ts = test.split(' ');
+    return ts.map(x => Number(x)).filter(x => !isNaN(x)).reduce((x, y) => x + y, 0);
+}
+
+// 5)
+function sumNumbers(test: string): number {
+    const ts = test.split(' ');
+    return ts.map(x => Number(x)).filter(x => !isNaN(x)).reduce((x, y) => x + y, 0);
+}
+
+// 6)
+var sum = (a: number, b: number): number => a + b
+
+var sumNumbers = (t: string): number => t
+    .split(' ')
+    .map(Number)
+    .filter(isFinite)
+    .reduce(sum, 0)
+    
+// 7)
+function sumNumbers(test: string): number {
+    return test.split(" ")
+        .map(x => +x)
+        .filter(x => !isNaN(x))
+        .reduce((a,b)=> a+b, 0)
+}
+
+console.log('Example:');
+console.log(sumNumbers('hi'));
+==============================================================================
+==============================================================================
