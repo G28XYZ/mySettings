@@ -124,3 +124,29 @@ console.log('Example:');
 console.log(sumNumbers('hi'));
 ==============================================================================
 ==============================================================================
+Найти 3 или большую последовательность слов между числами в данном тексте
+
+// 1)
+function threeWords(text) {
+    let reg = /[a-zA-Z]+\s[a-zA-Z]+\s[a-zA-Z]+/g
+    let findWorlds = text.match(reg)
+    return findWorlds == null ? false : true;
+}
+
+// 2)
+function threeWords(text: string): boolean {
+    let count = 0;
+    for(const w of text.split(' ')){
+        count = /[A-Za-z]+/.test(w) ? count + 1 : 0;
+        if(count == 3) return true;
+    }
+    return false;
+}
+
+// 3)
+function threeWords(text: string): boolean {
+    return /\b[a-z]+ [a-z]+ [a-z]+/i.test(text)
+}
+
+console.log('Example:')
+console.log(threeWords("Hello World hello"))
